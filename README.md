@@ -71,9 +71,35 @@ CONSTANT_MethodHandle 15
 CONSTANT_MethodType 16
 CONSTANT_InvokeDynamic 18
 ```
-（4）字段：
-（5）方法：
-（6）属性：
+（4）字段：描述接口或类中的字段
+```
+field_info {
+ u2 access_flags;
+ u2 name_index;
+ u2 descriptor_index;
+ u2 attributes_count;
+ attribute_info attributes[attributes_count];
+}
+```
+（5）方法：所有方法
+```
+method_info {
+ u2 access_flags;
+ u2 name_index;
+ u2 descriptor_index;
+ u2 attributes_count;
+ attribute_info attributes[attributes_count];
+}
+```
+（6）属性：用来描述字段和方法，规范包含23中属性。比如ConstantValue属性用来描述常量（final static修饰的字段）  
+Code属性用来描述一个方法。
+```
+attribute_info {
+ u2 attribute_name_index;
+ u4 attribute_length;
+ u1 info[attribute_length];
+}
+```
 
 ### 1-4、类加载
 
